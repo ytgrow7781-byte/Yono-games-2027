@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f20b16">
+  <meta name="description" content="YONO GAMES 2027 - gaming app information and links.">
+  <title>YONO GAMES 2027</title>
+  <style>
+    :root {
+      --red: #f10b16;
+      --red-dark: #cf0710;
+      --ink: #202633;
+      --muted: #697586;
+      --page: #f5f7fa;
+      --card: #fff;
+      --line: #e4e8ee;
+      --green: #078c58;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--page);
+    }
+    .topbar {
+      background: var(--red);
+      color: white;
+      box-shadow: 0 2px 8px #0002;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+    .top-inner {
+      max-width: 900px;
+      min-height: 88px;
+      margin: auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+    .brand-mark {
+      width: 54px; height: 54px; flex: 0 0 54px;
+      border-radius: 13px;
+      display: grid; place-items: center;
+      background: #fff;
+      color: var(--red);
+      font-weight: 900;
+      font-size: 12px;
+      line-height: 1.05;
+      text-align: center;
+      border: 2px solid #ffffff9c;
+      box-shadow: 0 2px 6px #7a000044;
+    }
+    .brand-name { font-size: 21px; font-weight: 800; letter-spacing: .2px; }
+    .menu {
+      background: white;
+      border-bottom: 1px solid var(--line);
+    }
+    .menu-inner {
+      max-width: 900px; margin: auto;
+      display: flex; justify-content: space-around;
+      padding: 10px 8px;
+    }
+    .menu a {
+      text-decoration: none; color: #657386; font-weight: 700;
+      padding: 9px 14px; border-radius: 9px;
+    }
+    .menu a:first-child { color: var(--red); background: #fff0f1; }
+    main { max-width: 900px; margin: 0 auto; padding: 18px 16px 42px; }
+    h1 {
+      text-align: center; font-size: clamp(25px, 5vw, 34px);
+      margin: 4px 0 20px; letter-spacing: -.5px;
+    }
+    .intro {
+      background: linear-gradient(115deg, #075a4d, #00c9c5);
+      color: white; border-radius: 17px; padding: 17px 18px;
+      line-height: 1.48; font-size: 14px; margin-bottom: 22px;
+    }
+    h2 { text-align: center; font-size: 27px; margin: 18px 0 12px; }
+    .section-tabs {
+      display: flex; background: white; border: 1px solid var(--line);
+      border-radius: 14px; padding: 5px; margin-bottom: 20px;
+      box-shadow: 0 2px 7px #17203312;
+    }
+    .section-tabs span {
+      flex: 1; text-align: center; padding: 13px 6px; font-weight: 800;
+      color: var(--muted);
+    }
+    .section-tabs span:first-child {
+      background: var(--red); color: white; border-radius: 9px;
+    }
+    .game-list { display: grid; gap: 15px; }
+    .game-card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 18px; padding: 16px;
+      display: grid; grid-template-columns: 88px 1fr auto;
+      align-items: center; gap: 16px;
+      box-shadow: 0 2px 7px #1b27351a;
+      position: relative;
+    }
+    .game-logo {
+      width: 78px; height: 78px; object-fit: cover;
+      border-radius: 15px; border: 1px solid #e6e9ed;
+      background: #f0f2f4;
+    }
+    .game-name { font-size: 21px; font-weight: 800; margin-bottom: 9px; }
+    .bonus { color: #c91d28; font-size: 15px; font-weight: 700; margin: 4px 0; }
+    .withdraw { color: #222; font-size: 14px; margin: 4px 0; }
+    .download {
+      background: #050505; color: white; text-decoration: none;
+      border-radius: 12px; padding: 15px 18px; min-width: 142px;
+      text-align: center; font-size: 16px; font-weight: 800;
+      display: inline-flex; justify-content: center; align-items: center; gap: 8px;
+    }
+    .download:hover { background: #303030; }
+    .download:focus-visible, a:focus-visible { outline: 3px solid #ffbf47; outline-offset: 3px; }
+    .disclaimer {
+      background: #fff8e8; border: 1px solid #f1d59a;
+      border-radius: 14px; padding: 16px; line-height: 1.55;
+    }
+    .disclaimer h3 { margin: 0 0 8px; color: #9a4b00; }
+    .about { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 18px; line-height: 1.65; }
+    section { scroll-margin-top: 110px; margin-top: 28px; }
+    footer { text-align: center; color: var(--muted); padding: 18px; font-size: 13px; }
+    @media (max-width: 600px) {
+      .top-inner { min-height: 76px; }
+      .brand-name { font-size: 18px; }
+      .menu a { padding: 9px 10px; font-size: 14px; }
+      main { padding: 16px 12px 30px; }
+      .game-card { grid-template-columns: 68px 1fr; gap: 12px; padding: 13px; }
+      .game-logo { width: 64px; height: 64px; border-radius: 12px; }
+      .game-name { font-size: 18px; margin-bottom: 6px; }
+      .bonus { font-size: 13px; }
+      .withdraw { font-size: 13px; }
+      .download { grid-column: 1 / -1; width: 100%; padding: 13px; }
+      h2 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="top-inner">
+      <div class="brand-mark" aria-label="YONO GAMES logo">YONO<br>GAMES<br>2027</div>
+      <div class="brand-name">YONO GAMES 2027</div>
+    </div>
+  </header>
+
+  <nav class="menu" aria-label="Main navigation">
+    <div class="menu-inner">
+      <a href="#home">⌂ Home</a>
+      <a href="#about">ⓘ About</a>
+      <a href="#disclaimer">⚠ Disclaimer</a>
+    </div>
+  </nav>
+
+  <main id="home">
+    <h1>YONO GAMES 2027</h1>
+    <div class="intro">
+      Welcome to YONO GAMES 2027. Explore the game information listed below.
+      Please read the disclaimer and check the laws that apply in your location
+      before visiting any third-party gaming website.
+    </div>
+
+    <h2>Download NEW YONO Games</h2>
+    <div class="section-tabs" aria-label="Game category">
+      <span>★ New Games</span>
+      <span>🎮 Other Games</span>
+    </div>
+
+    <div class="game-list">
+      <article class="game-card">
+        <img class="game-logo" src="assets/ind-club.jpg" alt="IND CLUB logo">
+        <div>
+          <div class="game-name">IND CLUB</div>
+          <div class="bonus">🎁 Sign Up Bonus ₹50</div>
+          <div class="withdraw">▣ Min. Withdrawal ₹100</div>
+        </div>
+        <a class="download" href="https://indclubjjj.com/?code=34UQAWK9GDW&amp;t=1794975161" target="_blank" rel="noopener noreferrer">⇩ Download</a>
+      </article>
+
+      <article class="game-card">
+        <img class="game-logo" src="assets/bingo-101.jpg" alt="BINGO 101 logo">
+        <div>
+          <div class="game-name">BINGO 101</div>
+          <div class="bonus">🎁 Sign Up Bonus ₹30</div>
+          <div class="withdraw">▣ Min. Withdrawal ₹100</div>
+        </div>
+        <a class="download" href="https://bingo101dd.com/?code=6YFWGCX2RHG&amp;t=1794975925" target="_blank" rel="noopener noreferrer">⇩ Download</a>
+      </article>
+
+      <article class="game-card">
+        <img class="game-logo" src="assets/123-rummy.webp" alt="123 RUMMY logo">
+        <div>
+          <div class="game-name">123 RUMMY</div>
+          <div class="bonus">🎁 Sign Up Bonus ₹60</div>
+          <div class="withdraw">▣ Min. Withdrawal ₹100</div>
+        </div>
+        <a class="download" href="https://www.123rummy20.com/?code=HT9WAKA7HL7&amp;t=1794977496" target="_blank" rel="noopener noreferrer">⇩ Download</a>
+      </article>
+
+      <article class="game-card">
+        <img class="game-logo" src="assets/joy-rummy.jpg" alt="JOY RUMMY logo">
+        <div>
+          <div class="game-name">JOY RUMMY</div>
+          <div class="bonus">🎁 Sign Up Bonus ₹100</div>
+          <div class="withdraw">▣ Min. Withdrawal ₹100</div>
+        </div>
+        <a class="download" href="https://www.joyrummyworld.com/?code=J5K3635AFCW&amp;t=1794977809" target="_blank" rel="noopener noreferrer">⇩ Download</a>
+      </article>
+
+      <article class="game-card">
+        <img class="game-logo" src="assets/vip-rummy.webp" alt="VIP RUMMY logo">
+        <div>
+          <div class="game-name">VIP RUMMY</div>
+          <div class="bonus">🎁 Sign Up Bonus ₹50</div>
+          <div class="withdraw">▣ Min. Withdrawal ₹100</div>
+        </div>
+        <a class="download" href="https://viprummy4.com/?code=XSDQUFK8PX1&amp;t=1794978038" target="_blank" rel="noopener noreferrer">⇩ Download</a>
+      </article>
+    </div>
+
+    <section id="about">
+      <h2>About All YONO GAMES 2027</h2>
+      <div class="about">
+        <p>Welcome to our platform, YONO GAMES 2027, a comprehensive hub created on 31 May 2025, dedicated to enhancing digital experiences for everyone.</p>
+        <p>At the heart of our mission lies the commitment to empower users with access to a wide range of applications, mirroring the global accessibility of platforms like renowned app marketplaces, but with a unique focus on Indian users.</p>
+        <p>Our journey began with a simple yet powerful vision: to revolutionize the way people discover and download apps. We recognize the evolving needs of the digital age and strive to meet them by offering an extensive selection of applications. From utility and productivity apps to entertainment and lifestyle options, our platform is a one-stop destination for all your app needs.</p>
+        <p>We are not just about providing access to apps; we are about fostering a community where knowledge about the latest digital tools is shared and celebrated. Our platform is designed to be user-friendly, ensuring a seamless experience for everyone, from tech-savvy individuals to those just starting their digital journey.</p>
+        <p>Our focus on Indian applications sets us apart, reflecting our dedication to cater to the unique needs and preferences of our audience. We believe in the power of local solutions for local challenges, and our platform is a testament to this belief.</p>
+        <p>Join us in our endeavor to bring the best of digital innovations to your fingertips. Explore, download, and stay ahead in the ever-evolving world of apps with YONO GAMES 2027.</p>
+      </div>
+    </section>
+
+    <section id="disclaimer">
+      <h2>Disclaimer</h2>
+      <div class="disclaimer">
+        <h3>⚠ जरूरी चेतावनी</h3>
+        <p>YONO GAMES 2027 पर दी गई जानकारी ऑनलाइन सट्टा एवं रियल मनी गेमिंग से संबंधित हो सकती है। ऐसे खेलों में पैसों का नुकसान होने का जोखिम रहता है। इसमें भाग लेना पूरी तरह आपकी अपनी जिम्मेदारी है।</p>
+        <p>कृपया खेलने से पहले अपने राज्य के लागू कानूनों की जानकारी लें। 18 वर्ष से कम उम्र के लोग इसमें भाग न लें। किसी भी कमाई या बोनस की गारंटी नहीं है।</p>
+        <p>हम इन third-party websites के मालिक नहीं हैं और उनकी सुरक्षा, भुगतान, नियमों या उपलब्धता की गारंटी नहीं देते। किसी भी वेबसाइट पर पैसे जमा करने से पहले उसकी वैधता और शर्तें स्वयं जांचें।</p>
+      </div>
+    </section>
+  </main>
+  <footer>© 2027 YONO GAMES 2027</footer>
+</body>
+</html>
